@@ -1,0 +1,19 @@
+I have added phpunit to the project through composer already.
+
+You will have to install the database by either dumping the SQL file I included in the project or using cakephp migrations.
+
+To use cakephp migrations, update the database settings on [project_root]/config/app.php with your local db credentials for both default and test database, 
+
+change directory to [project_root]/bin
+
+Then run "cakephp migrations migrate"
+
+Running phpunit on cakephp is straight forward.
+
+After installing PHPUnit on cakephp using composer 
+
+Using command prompt or shell, change directory to project root.
+
+Then run: phpunit tests
+
+Test results should appear on your screen.

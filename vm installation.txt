@@ -1,0 +1,72 @@
+Updated Virtualbox
+
+Updated Virtualbox Extension Pack
+
+Downloaded Centos 7 minimal from centos official site
+
+Created new virtual machine in Virtualbox with Name CentOS, Type:Linux,Version:RedHat64bit
+Memory set to 1GB, Virtual Disk using VDI type, HD space dynamic, 8GB default size of virtual disk
+
+Selected new machine and went to settings, selected virtual empty optical storage disk and selected centos image downloaded lately
+
+Started VM
+
+Followed Centos install wizard and set ethernet interface to on, Set root password
+
+Rebooted VM and logged in as root
+
+SHELL:
+
+# yum update
+
+# yum install net-tools
+installed this so I can see the network interface network info for testing my virtual server setupifconfig
+
+# ifconfig
+shows 10.0.2.15 so it's on a NAT setup and I wanted it to be accessible on my network so I went to virtualbox and set my Vm network to bridged mode
+
+reset the VM and now showing VM's ip as in my local network
+
+Accessed the VM through PUTTY for my convenience
+
+USING PUTTY now
+
+# yum install httpd
+
+# service httpd start
+
+# yum install mysql
+install mysql client
+
+# yum install wget
+to use wget for installing mysql server
+
+# wget http://repo.mysql.com//mysql57-community-release-el7-7.noarch.rpm
+
+# rpm -ivh mysql57-community-release-el7-7.noarch.rpm
+
+# yum update
+
+# yum install mysql-server
+
+# service mysqld start
+
+# grep 'temporary password' /var/log/mysqld.log
+
+# mysql_secure_installation
+set new root password to replace temporary random password
+
+# mysql -u root -p
+test my new mysql server
+
+# yum install php php-mysql
+
+# cd /var/www/html
+
+# vi phpinfo.php
+Created phpinfo display script
+
+# service httpd restart
+Restarted httpd to reflect new php addition
+
+Accessed the VM local ip address and phpinfo.php showed the php details
